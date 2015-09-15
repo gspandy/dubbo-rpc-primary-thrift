@@ -1,1 +1,1 @@
-pthrift=tutorial.PrimaryThriftProtocol
+thrift=com.dubbo.ThriftProtocol

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="dubbo-demo-consumer"/>
+
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <dubbo:protocol name="thrift" />
+
+    <!-- <dubbo:reference id="demoService" interface="bs$Iface" timeout="600000" /> -->
+    
+    <dubbo:reference id="demoService"  async="false" timeout="600000" url="thrift://127.0.0.1:8080/bs$Iface" interface="bs$Iface"/>
+ 
+    <!-- <dubbo:reference id="demoService"  async="false" timeout="600000" url="thrift://10.1.15.100:5258/bs$Iface" interface="bs$Iface"/>
+ -->
+</beans>
